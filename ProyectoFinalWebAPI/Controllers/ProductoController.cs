@@ -3,22 +3,26 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ProyectoFinalWebAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("api/[controller]")]
     public class ProductoController : ControllerBase
     {
-        [HttpGet("/producto/{descripciones}")]
-        public Producto ObtenerProductoByDescripciones(string descripciones)
-        {
-            Producto producto = ManejadorProducto.ObtenerProducto(descripciones);
-            return producto;
+        [HttpPost("/productos/insertar")]
+        public void IngresarProducto(Producto producto) 
+        { 
+            ManejadorProducto.InsertarProducto(producto);
         }
 
-        [HttpGet("/productos")]
-        public List<Producto> ObtenerProductos()
+        [HttpPut("/producto/actualizar")]
+        public void Actualizar([FromBody] Producto producto)
         {
-            return ManejadorProducto.ObtenerProductos();
+            ManejadorProducto.UpdateProducto(producto);
         }
 
+        [HttpDelete("/producto/eliminar/{id}")]
+        public void EliminarProducto(long id)
+        {
+            ManejadorProducto.DeleteProducto(id);
+        }
     }
 }

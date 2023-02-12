@@ -175,5 +175,13 @@ namespace ProyectoFinalWebAPI
             }
             return listaProductosCargados;
         }
+
+        // ACTUALIZAR STOCK PRODUCTO VENDIDO
+        public static int UpdateStockProducto(long id, int cantidadVendidos)
+        {
+            Producto producto = ObtenerProducto(id);
+            producto.Stock -= cantidadVendidos;
+            return UpdateProducto(producto);
+        }
     }
 }

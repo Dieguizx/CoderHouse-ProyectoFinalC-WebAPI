@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -62,7 +63,37 @@ namespace ProyectoFinalWebAPI
             return listaVentasRealizadas;
         }
 
+        // INSERTAR VENTA
+        public static void InsertarVenta(List<Producto> productos, long IdUsuario)
+        {
+            Venta venta = new Venta();
 
-
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand comando = new SqlCommand("INSERT INTO Venta (Comentarios, IdUsuario) " + 
+                    " VALUES (Comentarios = @comentarios, IdUsuario = @idUsuario", conexion);
+                comando.Parameters.AddWithValue("@comentarios", venta.Comentarios);
+                comando.Parameters.AddWithValue("@idUsuario", venta.IdUsuario);
+                conexion.Open();
+                comando.ExecuteNonQuery();
+                venta.Id = GetId.Get(comando);
+                foreach (Producto producto in productos)
+                {
+                    SqlCommand comando2 = new SqlCommand("INSERT INTO ProductoVendido (Stock, IdProducto, IdVenta) " +
+                        " VALUES (Stock = @stock, IpProducto = @idProducto, IdVenta = @idVenta", conexion);
+                    comando2.Parameters.AddWithValue("@stock", producto.Stock);
+                    comando2.Parameters.AddWithValue("@idProducto", producto.Id);
+                    comando2.Parameters.AddWithValue("@idVenta", venta.Id);
+                    comando2.ExecuteNonQuery();
+                    
+                    SqlCommand comando3 = new SqlCommand("UPDATE Producto SET Stock = (Stock - @stock) " + 
+                        " WHERE Id = @idProducto", conexion);
+                    comando3.Parameters.AddWithValue("@stock", producto.Stock);
+                    comando3.Parameters.AddWithValue("@idProducto", producto.Id);
+                    comando3.ExecuteNonQuery();
+                }
+            }
+        }
     }
 }
+

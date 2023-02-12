@@ -7,19 +7,19 @@ namespace ProyectoFinalWebAPI.Controllers
     [Route("api/[controller]")]
     public class ProductoController : ControllerBase
     {
-        [HttpPost("/productos/insertar")]
+        [HttpPost]
         public void IngresarProducto(Producto producto) 
         { 
             ManejadorProducto.InsertarProducto(producto);
         }
 
-        [HttpPut("/producto/actualizar")]
+        [HttpPut]
         public void Actualizar([FromBody] Producto producto)
         {
             ManejadorProducto.UpdateProducto(producto);
         }
 
-        [HttpDelete("/producto/eliminar/{id}")]
+        [HttpDelete("{id}")]
         public void EliminarProducto(long id)
         {
             ManejadorProducto.DeleteProducto(id);

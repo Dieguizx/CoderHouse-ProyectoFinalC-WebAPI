@@ -8,7 +8,7 @@ namespace ProyectoFinalWebAPI.Controllers
     [ApiController]
     public class UsuarioController : ControllerBase
     {
-        [HttpPut("/usuario/actualizar")]
+        [HttpPut]
         public void Actualizar([FromBody] Usuario usuario)
         {
             ManejadorUsuario.UpdateUsuario(usuario);

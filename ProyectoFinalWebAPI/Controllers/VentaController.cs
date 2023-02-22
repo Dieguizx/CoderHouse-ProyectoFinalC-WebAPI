@@ -13,5 +13,11 @@ namespace ProyectoFinalWebAPI.Controllers
         {
             ManejadorVentas.InsertarVenta(productos, idUsuario);
         }
+
+        [HttpGet("{idUsuario}")]
+        public List<Venta> TraerVentas(long idUsuario)
+        {
+            return ManejadorVentas.ObtenerVentas(idUsuario);
+        }
     }
 }

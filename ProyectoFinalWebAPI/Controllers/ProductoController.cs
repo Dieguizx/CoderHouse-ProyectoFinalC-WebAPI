@@ -24,5 +24,11 @@ namespace ProyectoFinalWebAPI.Controllers
         {
             ManejadorProducto.DeleteProducto(id);
         }
+
+        [HttpGet("{id}")]
+        public Producto GetProducto(long id)
+        {
+            return ManejadorProducto.ObtenerProducto(id);
+        }
     }
 }

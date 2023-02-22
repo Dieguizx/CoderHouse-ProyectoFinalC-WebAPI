@@ -13,5 +13,23 @@ namespace ProyectoFinalWebAPI.Controllers
         {
             ManejadorUsuario.UpdateUsuario(usuario);
         }
+
+        [HttpGet("{usuario}/{passw}")]
+        public Usuario Login(string usuario, string passw)
+        {
+            return ManejadorUsuario.Login(usuario, passw);
+        }
+
+        [HttpPost]
+        public void InsertarUsuario(Usuario user)
+        {
+            ManejadorUsuario.InsertarUsuario(user);
+        }
+
+        [HttpGet("{id}")]
+        public Usuario traerUsuario(long id)
+        {
+            return ManejadorUsuario.ObtenerUsuario(id);
+        }
     }
 }

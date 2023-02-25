@@ -31,5 +31,11 @@ namespace ProyectoFinalWebAPI.Controllers
         {
             return ManejadorUsuario.ObtenerUsuario(id);
         }
+
+        [HttpDelete("{id}")]
+        public void EliminarUsuario(long id)
+        {
+            ManejadorUsuario.DeleteUsuario(id);
+        }
     }
 }

@@ -689,11 +689,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DEVELOPER\\C#\\CODERHOUSE\\PROYECTO_FINAL\\Coderhouse-ProyectoFinalC-WebAPI\\ProyectoFinalWebAPI\\ProyectoFinalWebAPI.csproj",
+      "projectUniqueName": "D:\\GIT\\CoderHouse-ProyectoFinalC-WebAPI\\ProyectoFinalWebAPI\\ProyectoFinalWebAPI.csproj",
       "projectName": "ProyectoFinalWebAPI",
-      "projectPath": "D:\\DEVELOPER\\C#\\CODERHOUSE\\PROYECTO_FINAL\\Coderhouse-ProyectoFinalC-WebAPI\\ProyectoFinalWebAPI\\ProyectoFinalWebAPI.csproj",
+      "projectPath": "D:\\GIT\\CoderHouse-ProyectoFinalC-WebAPI\\ProyectoFinalWebAPI\\ProyectoFinalWebAPI.csproj",
       "packagesPath": "C:\\Users\\Diego Allende\\.nuget\\packages\\",
-      "outputPath": "D:\\DEVELOPER\\C#\\CODERHOUSE\\PROYECTO_FINAL\\Coderhouse-ProyectoFinalC-WebAPI\\ProyectoFinalWebAPI\\obj\\",
+      "outputPath": "D:\\GIT\\CoderHouse-ProyectoFinalC-WebAPI\\ProyectoFinalWebAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
